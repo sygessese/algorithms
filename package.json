@@ -1,0 +1,22 @@
+{
+  "name": "toy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sygessese/toy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sygessese/toy/issues"
+  },
+  "homepage": "https://github.com/sygessese/toy#readme",
+  "dependencies": {
+    "jest": "^24.9.0"
+  }
+}
