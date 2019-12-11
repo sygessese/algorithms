@@ -1,17 +1,15 @@
-var combinationSum = function (candidates, target) {
+var combinationSum = function (candidates, target, sum = 0, arr = []) {
   var results = [];
-  var combinationSumInner = function (candidates, sum, arr = []) {
-    candidates.forEach((num, i) => {
-      var result = arr.concat([num])
-      if (num + sum === target) {
-        results.push(result)
-      } else if (num + sum < target) {
-        combinationSumInner(candidates.slice(i), sum + num, result)
-      }
-    })
-  }
-  combinationSumInner(candidates, 0);
+  candidates.forEach((num, i) => {
+    var result = arr.concat([num])
+    if (num + sum === target) {
+      results.push(result)
+    } else if (num + sum < target) {
+      results = results.concat(combinationSum(candidates.slice(i), target, sum + num, result));
+    }
+  })
   return results;
-};
+}
 
 module.exports = combinationSum;
+
