@@ -1,11 +1,4 @@
 var letterCombinations = function (digits, results = [], str) {
-  // input string
-  // output array of strings
-  // constraints none
-  // edge cases none
-
-  // decision tree, start with 23, branch for all '2' possibilities, branch again for all '3'
-  // recursively removing string[0] at each call, return char + func(), when string = 0, return char
   var results = [];
   var letterCombinationsInner = function (digits, results, str = "") {
     if (digits.length === 0) {
@@ -21,7 +14,6 @@ var letterCombinations = function (digits, results = [], str) {
   }
   letterCombinationsInner(digits, results);
   return results;
-
 };
 
 var chars = {
@@ -36,6 +28,3 @@ var chars = {
 }
 
 module.exports = letterCombinations;
-
-// Input: "23"
-// Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
