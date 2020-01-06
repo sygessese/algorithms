@@ -1,7 +1,4 @@
-var isBadVersion = (n) => {
-  var versions = [false, false, false, true, true];
-  return versions[n - 1]
-}
+
 
 var firstbadversion = function (isBadVersion) {
   return function (n) {
