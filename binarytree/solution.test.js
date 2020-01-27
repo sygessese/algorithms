@@ -75,17 +75,21 @@ class Tree {
   }
 
   valuesByLevel() {
-    // returns array of arrays
-    // results array
-    // queue array
-    // push root into queue
-    // while loop - queue.length > 0
-    // level array
-    // count queue.length
-    // for loop of that count
-    // for each, push val into level, pop from queue
-    // at end of for loop, push level into results
-    // return results
+    var result = [];
+    var queue = [];
+    queue.push(this.root);
+    while (queue.length > 0) {
+      var queueLength = queue.length;
+      var currentRow = [];
+      for (var i = 0; i < queueLength; i++) {
+        currentRow.push(queue[i].val);
+        if (queue[i].left) queue.push(queue[i].left)
+        if (queue[i].right) queue.push(queue[i].right)
+      }
+      queue = queue.slice(queueLength)
+      result.push(currentRow)
+    }
+    return result;
   }
 }
 
@@ -148,6 +152,11 @@ test('Tree class returns boolean on existance of a value', () => {
   expect(testTree.findNode(5)).toEqual(false)
   expect(testTree2.findNode(3)).toEqual(true)
   expect(testTree2.findNode(7)).toEqual(false)
+})
+
+test('Tree class returns level ordered nodes', () => {
+  expect(testTree.valuesByLevel()).toEqual([[1], [2, 3], [4]]);
+  expect(testTree2.valuesByLevel()).toEqual([[1], [2, 2], [3, 4, 4, 3]]);
 })
 
 test('Symmetric-Tree fuction accurately determines mirror equality', () => {
